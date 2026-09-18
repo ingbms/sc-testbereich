@@ -9,15 +9,9 @@
     "build": "npm run media && astro build",
     "preview": "astro preview --host 127.0.0.1",
     "precheck": "npm run media",
-    "check": "astro check",
-    "test": "node --test tests/*.test.mjs",
-    "test:browser": "node tests/browser.mjs",
-    "test:seminars": "node tests/seminars.browser.mjs",
-    "test:voices": "node tests/voices.browser.mjs"
+    "check": "astro check"
   },
   "dependencies": {
-    "@fontsource/libre-caslon-display": "^5.3.0",
-    "@fontsource/source-sans-3": "^5.3.0",
     "astro": "^7.3.2",
     "dompurify": "^3.4.15",
     "marked": "^18.0.13",
@@ -26,7 +20,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@playwright/test": "^1.63.0",
     "@types/papaparse": "^5.5.2",
     "typescript": "^6.0.3"
   }

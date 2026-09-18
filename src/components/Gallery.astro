@@ -1,0 +1,17 @@
+---
+import media from '../data/media.generated.json';
+import config from '../data/media.config.json';
+import { url } from '../data/site';
+import Icon from './Icon.astro';
+interface Props { country?: string; limit?: number; compact?: boolean }
+const { country, limit, compact = false } = Astro.props;
+const selected = compact && (country === 'DE' || country === 'HU') ? config.preview[country] : null;
+const available = media.filter(item => !country || item.country === country);
+const items = (selected ? selected.map(source => available.find(item => item.source === source)).filter((item): item is (typeof media)[number] => !!item) : available).slice(0, limit);
+---
+<div class:list={['gallery-grid', { compact }]}>
+  {items.map(item => <a class="gallery-item" href={url(item.full)} data-gallery data-kind={item.type} data-caption={item.title} aria-label={`${item.title} – ${item.type === 'video' ? 'Video öffnen' : 'Bild vergrößern'}`}>
+    {item.type === 'image' ? <img src={url(item.thumb!)} alt={item.title} loading="lazy" width={item.width} height={item.height} /> : <span class="video-preview"><Icon name="play" /><span>Video ansehen</span></span>}
+    {!compact && <span class="gallery-caption">{item.title}<span aria-hidden="true">↗</span></span>}
+  </a>)}
+</div>

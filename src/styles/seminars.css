@@ -1,0 +1,50 @@
+.events-list{gap:26px}
+.seminar-archive{margin-top:30px;padding-top:35px;border-top:1px solid var(--line);min-width:0}
+.seminar-archive>h2{font-size:clamp(2rem,3vw,2.8rem);margin-bottom:25px}
+.seminar-archive-list{display:grid;gap:26px}
+.seminar-status{font-size:.88rem;color:var(--muted)}
+.seminar-card{display:grid;grid-template-columns:105px minmax(0,1fr) 210px;gap:32px;align-items:start;background:var(--paper);border-top:2px solid var(--red);padding:36px}
+.seminar-card--past{border-top-color:var(--line)}
+.seminar-date{display:flex;flex-direction:column;align-items:center;padding:12px 10px 20px;color:var(--red);border-bottom:1px solid var(--line)}
+.seminar-month{text-transform:uppercase;letter-spacing:.14em;font-size:.85rem}
+.seminar-day{font:4.2rem/1.1 var(--serif)}
+.seminar-year{font-size:.9rem;color:var(--muted)}
+.seminar-body{min-width:0}
+.seminar-body>.eyebrow{margin:0 0 11px}
+.seminar-body>h3{font-size:clamp(1.8rem,2.4vw,2.4rem);line-height:1.12;margin-bottom:18px;overflow-wrap:anywhere}
+.seminar-facts{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.88rem;color:var(--muted);margin-bottom:20px}
+.seminar-facts>span{border-left:1px solid var(--line);padding-left:18px}
+.seminar-deadline{display:flex;flex-wrap:wrap;gap:4px 10px;border-left:2px solid var(--red);padding-left:12px;margin:-6px 0 20px;font-size:.88rem;color:var(--muted)}
+.seminar-deadline>span{font-weight:600;color:var(--ink)}
+.seminar-address{font-size:.95rem;margin:-8px 0 20px;white-space:pre-line}
+.seminar-booking{border-left:1px solid var(--line);padding-left:25px;display:grid;gap:25px}
+.seminar-price{display:grid;gap:4px}
+.seminar-price strong{font:2.15rem/1.1 var(--serif);color:var(--ink);white-space:nowrap}
+.seminar-price span{font-size:.82rem;color:var(--muted)}
+.seminar-booking .button{font-size:.82rem;padding:10px 12px;text-align:center}
+.seminar-booking .seminar-gallery{background:transparent;color:var(--red);border:1px solid var(--red)}
+.seminar-booking .seminar-gallery:hover{background:var(--red);color:#fff}
+.seminar-markdown{font-size:1rem;line-height:1.6;color:var(--muted);overflow-wrap:anywhere}
+.seminar-markdown p{margin-bottom:16px}
+.seminar-markdown>:last-child{margin-bottom:0}
+.seminar-markdown h4{font:1.45rem/1.2 var(--serif);color:var(--ink);margin:25px 0 12px}
+.seminar-markdown strong{font-weight:600;color:var(--ink)}
+.seminar-markdown ul,.seminar-markdown ol{padding-left:23px;margin:14px 0 22px}
+.seminar-markdown li{padding-left:5px;margin:8px 0}
+.seminar-markdown li::marker{color:var(--red)}
+.seminar-markdown a{color:var(--red);text-decoration:underline;text-underline-offset:3px}
+.seminar-markdown blockquote{border-left:2px solid var(--red);padding:5px 0 5px 20px;margin:20px 0;font-style:italic}
+.seminar-markdown pre{overflow-x:auto;max-width:100%;padding:14px;background:#ece6dd;font-size:.85rem}
+.seminar-markdown code{font-size:.9em}
+.seminar-markdown table{display:block;overflow-x:auto;border-collapse:collapse;max-width:100%;margin:20px 0;font-size:.9rem}
+.seminar-markdown th,.seminar-markdown td{border-bottom:1px solid var(--line);padding:8px 12px;text-align:left}
+.seminar-markdown hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+.seminar-details{border-top:1px solid var(--line);margin-top:23px;padding-top:15px}
+.seminar-details summary{cursor:pointer;list-style:none;color:var(--red);font-size:.9rem;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:3px 0}
+.seminar-details summary::-webkit-details-marker{display:none}
+.seminar-details summary:after{content:'+';font-size:1.4rem;font-weight:400;line-height:1}
+.seminar-details[open] summary:after{content:'−'}
+.seminar-details[open]>.seminar-markdown{margin-top:20px}
+.seminar-note{font-size:.9rem;border-top:1px solid var(--line);padding-top:17px;margin-top:23px}
+@media(max-width:1100px){.seminar-card{grid-template-columns:85px minmax(0,1fr);gap:24px;padding:28px}.seminar-booking{grid-column:2;border-left:0;border-top:1px solid var(--line);padding:20px 0 0;display:flex;align-items:center;justify-content:space-between;gap:20px}.seminar-price strong{font-size:1.85rem}}
+@media(max-width:600px){.seminar-card{grid-template-columns:minmax(0,1fr);padding:24px 20px;gap:22px}.seminar-date{flex-direction:row;justify-content:flex-start;gap:11px;padding:0 0 15px}.seminar-day{font-size:2.6rem;order:-1}.seminar-body>h3{font-size:2rem}.seminar-booking{grid-column:1;flex-wrap:wrap}.seminar-markdown{font-size:.97rem}.seminar-booking .button{flex-grow:1;min-height:46px}.seminar-facts{font-size:.85rem;gap:8px 12px}.seminar-facts>span{padding-left:12px}}

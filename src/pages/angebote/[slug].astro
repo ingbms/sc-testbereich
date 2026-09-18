@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+import Photo from '../../components/Photo.astro';
+import CallToAction from '../../components/CallToAction.astro';
+import { offers, url, emailLink } from '../../data/site';
+export function getStaticPaths() { return offers.map(offer => ({ params: { slug: offer.slug }, props: { offer } })); }
+const { offer } = Astro.props;
+---
+<Layout title={offer.title} description={offer.intro}><PageHeading title={offer.title} eyebrow={offer.eyebrow} intro={offer.intro} /><div class="container section-space"><div class="split-intro"><Photo source={offer.image} position={offer.position} /><div><p class="eyebrow">Raum für neue Perspektiven</p><h2>{offer.summary}</h2><p>Die Begegnung mit dem Pferd, angeleitete Übungen und gemeinsame Reflexion greifen ineinander. Im Mittelpunkt steht dein Anliegen – und die Frage, was du aus der Erfahrung mitnehmen möchtest.</p><a class="text-link" href={url('ansatz/')}>Den Ansatz kennenlernen →</a></div></div><div class="article-grid">{offer.sections.map(section => <section><h2>{section.title}</h2><p>{section.text}</p></section>)}</div><section class="outcomes"><h2>Mögliche Schwerpunkte</h2><ul>{offer.outcomes.map(outcome => <li>{outcome}</li>)}</ul></section><div class="practical"><p>Du brauchst keine Reiterfahrung. Wir arbeiten vom Boden aus und stimmen Format, Dauer und Ort im persönlichen Gespräch ab.</p><a class="button" href={emailLink(`Anfrage: ${offer.title}`)}>Training anfragen →</a></div>{offer.slug === 'fuehrung' && <p style="margin-top: 28px">Weitere Impulse findest du in Birgits Buch <a class="text-link" href={url('birgit-groddeck/#buch')}>„Smiling Relations – Führungsqualitäten stärken“ →</a></p>}</div><CallToAction /></Layout>

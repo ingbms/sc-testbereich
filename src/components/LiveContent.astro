@@ -1,0 +1,10 @@
+---
+import { eventsCsvUrl } from '../data/events-source';
+import { voicesCsvUrl } from '../data/voices-source';
+interface Props { kind: 'termine' | 'stimmen'; limit?: number }
+const { kind, limit } = Astro.props;
+---
+<div data-live-content={kind} data-sheet-url={kind === 'termine' ? eventsCsvUrl : voicesCsvUrl} data-limit={limit} class={kind === 'stimmen' ? `reviews-list${limit ? ' reviews-preview' : ''}` : 'events-list'} aria-live="polite" aria-busy="false">
+  <p class="empty-state">{kind === 'stimmen' ? 'Die Stimmen der Teilnehmenden werden geladen.' : 'Termine und individuelle Trainings kannst du direkt per E-Mail anfragen.'}</p>
+</div>
+{kind === 'stimmen' && <noscript><p>Bitte aktiviere JavaScript, um die aktuellen Stimmen aus unserer Tabelle zu lesen.</p></noscript>}

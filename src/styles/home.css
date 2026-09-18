@@ -1,0 +1,8 @@
+.about-facts.about-facts--evidence{grid-template-columns:minmax(0,1fr);margin:0;list-style:none;gap:24px}
+.about-facts--evidence li{min-width:0}
+.about-facts--evidence a{display:grid;grid-template-columns:29px minmax(0,1fr);gap:14px;align-items:start}
+.about-facts--evidence strong{display:block;font-size:.95rem;font-weight:600;line-height:1.4}
+.about-facts--evidence small{display:block;color:var(--muted);font-size:.8rem;line-height:1.5;margin-top:6px}
+.about-facts--evidence a:hover strong{text-decoration:underline;text-underline-offset:4px}
+@media(min-width:601px) and (max-width:980px){.about-facts.about-facts--evidence{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.hero{padding-top:270px}}

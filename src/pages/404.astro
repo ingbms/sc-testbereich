@@ -1,0 +1,6 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import { url } from '../data/site';
+---
+<Layout title="Seite nicht gefunden"><PageHeading title="Hier geht es nicht weiter." eyebrow="Seite nicht gefunden" intro="Vielleicht hat sich die Adresse geändert. Auf der Startseite findest du die Angebote und den Weg zum Kontakt." /><div class="container section-space"><a class="button" href={url()}>Zur Startseite →</a></div></Layout>

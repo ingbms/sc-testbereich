@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeading from '../components/PageHeading.astro';
+import LiveContent from '../components/LiveContent.astro';
+import CallToAction from '../components/CallToAction.astro';
+---
+<Layout title="Stimmen" description="Persönliche Erfahrungen mit Smiling Relations: Teilnehmende erzählen von Begegnungen mit Pferden, neuen Perspektiven und ihrem Training mit Birgit Groddeck.">
+  <PageHeading title="Was von einer Begegnung bleibt." eyebrow="Stimmen & Erfahrungen" intro="Menschen kommen mit unterschiedlichen Fragen. Hier erzählen sie selbst, was sie erlebt haben – und was sie aus dem Training mitnehmen." />
+  <section class="container section-space" aria-label="Erfahrungen von Teilnehmenden"><LiveContent kind="stimmen" /></section>
+  <CallToAction />
+</Layout>

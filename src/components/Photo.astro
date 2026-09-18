@@ -1,0 +1,9 @@
+---
+import media from '../data/media.generated.json';
+import { url } from '../data/site';
+interface Props { source: string; alt?: string; class?: string; eager?: boolean; size?: 'thumb' | 'large'; position?: string }
+const { source, alt, class: className, eager = false, size = 'large', position = 'center' } = Astro.props;
+const item = media.find(item => item.source === source);
+if (!item || item.type !== 'image') throw new Error(`Missing configured image: ${source}`);
+---
+<img src={url(item[size]!)} alt={alt ?? item.title} width={item.width} height={item.height} class={className} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" style={`object-position: ${position}`} />

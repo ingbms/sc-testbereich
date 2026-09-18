@@ -1,0 +1,6 @@
+---
+import { url } from '../data/site';
+interface Props { title: string; eyebrow?: string; intro?: string }
+const { title, eyebrow, intro } = Astro.props;
+---
+<section class="page-heading"><div class="container"><div class="breadcrumb"><a href={url()}>Startseite</a> <span aria-hidden="true"> / </span> {title}</div>{eyebrow && <p class="eyebrow">{eyebrow}</p>}<h1>{title}</h1>{intro && <p class="lead">{intro}</p>}</div></section>

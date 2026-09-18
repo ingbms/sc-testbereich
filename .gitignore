@@ -1,0 +1,23 @@
+*.log
+__pycache__/
+.venv/
+.idea/
+.vscode/
+node_modules/
+.astro/
+dist/
+.npm-cache/
+.env
+.env.*
+!.env.example
+public/media/
+public/brand/
+public/fonts/
+src/data/media.generated.json
+temp/
+**/nomedia/
+*.zip
+images/proposals/
+
+# Generated browser test screenshots
+documentation/previews/

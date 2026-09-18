@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import '../styles/voices.css';
+import Icon from '../components/Icon.astro';
+import { url, emailLink } from '../data/site';
+interface Props { title?: string; description?: string }
+const { title, description = 'Klarer kommunizieren, persönlich wachsen, besser zusammenarbeiten. Smiling Relations mit Birgit Groddeck: Entwicklung und Führung mit Pferden als Feedbackpartner.' } = Astro.props;
+const nav = [['Ansatz', 'ansatz/'], ['Angebote', 'angebote/'], ['Galerie', 'birgit-groddeck/#galerie'], ['Über mich', 'birgit-groddeck/'], ['Termine', 'angebote/#termine'], ['Stimmen', 'stimmen/'], ['Kontakt', 'kontakt/']];
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const analyticsEndpoint = import.meta.env.PUBLIC_ANALYTICS_ENDPOINT || '';
+const analyticsEnabled = import.meta.env.PUBLIC_ANALYTICS_ENABLED === 'true' && !!analyticsEndpoint;
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} /><meta name="theme-color" content="#a80d2b" /><meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title ? `${title} · Smiling Relations` : 'Smiling Relations · Besser kommunizieren. Echt bewegen.'}</title>
+    <link rel="canonical" href={canonical} /><link rel="icon" href={url('brand/logo.svg')} type="image/svg+xml" />
+    <meta property="og:title" content={title || 'Besser kommunizieren. Echt bewegen.'} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:locale" content="de_DE" /><meta property="og:url" content={canonical} />
+  </head>
+  <body data-base={import.meta.env.BASE_URL} data-analytics-endpoint={analyticsEndpoint} data-analytics-enabled={String(analyticsEnabled)}>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href={url()} aria-label="Smiling Relations – Startseite"><img src={url('brand/logo.svg')} width="72" height="66" alt="" /><span><strong>Smiling Relations</strong><small>kooperativ kommunizieren</small></span></a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menü <span aria-hidden="true">☰</span></button>
+        <nav id="navigation" aria-label="Hauptnavigation">{nav.map(([label, path]) => <a href={url(path)} aria-current={!path.includes('#') && Astro.url.pathname.startsWith(url(path)) ? 'page' : undefined}>{label}</a>)}</nav>
+        <a class="button header-cta" href={emailLink()}>Jetzt Kontakt aufnehmen <Icon name="arrow" /></a>
+        <span class="header-note">Menschen<br />Pferde<br />Entwicklung</span>
+      </div>
+    </header>
+    <main id="inhalt"><slot /></main>
+    <footer class="site-footer"><div class="container footer-inner">
+      <a class="brand footer-brand" href={url()}><img src={url('brand/logo.svg')} width="45" height="42" alt="" /><span><strong>Smiling Relations</strong><small>kooperativ kommunizieren</small></span></a>
+      <nav aria-label="Weitere Seiten">{nav.map(([label, path]) => <a href={url(path)}>{label}</a>)}</nav>
+      <nav aria-label="Rechtliche Informationen"><a href={url('datenschutz/')}>Datenschutz</a><a href={url('impressum/')}>Impressum</a>{analyticsEnabled && <button class="text-button" data-consent-open>Statistik-Einstellungen</button>}</nav>
+      <span class="footer-note">Mit Respekt<br />für Mensch und Tier.</span>
+    </div></footer>
+    <dialog id="media-viewer" aria-label="Galerieansicht">
+      <div class="viewer-toolbar"><button type="button" data-viewer-close><Icon name="close" /> Schließen</button><span data-viewer-count></span><a data-viewer-original href="#" target="_blank" rel="noopener">Volle Auflösung ↗</a></div>
+      <div class="viewer-stage"></div><p class="viewer-caption"></p>
+      <div class="viewer-navigation"><button type="button" data-viewer-prev aria-label="Vorheriges Bild">← Zurück</button><button type="button" data-viewer-next aria-label="Nächstes Bild">Weiter →</button></div>
+    </dialog>
+    {analyticsEnabled && <dialog id="statistics-consent" aria-labelledby="consent-title"><h2 id="consent-title">Eine kleine Statistik?</h2><p>Mit deiner Einwilligung zählen wir Seitenaufrufe über Google Apps Script und eine private Google-Tabelle. Gespeichert werden Aufrufzeit und Seitenpfad für 30 Tage, Tageszahlen für 12 Monate. Keine Besucherkennungen und keine Ortsauswertung.</p><p>Bei der Verbindung zu Google fallen technische Verbindungsdaten an; Verarbeitung außerhalb der EU ist möglich. Deine Auswahl wird für sechs Monate lokal gespeichert und lässt sich jederzeit im Footer ändern. <a href={url('datenschutz/')}>Datenschutzhinweise lesen</a>.</p><div class="consent-actions"><button class="button button-outline" data-consent="no">Ohne Statistik</button><button class="button" data-consent="yes">Statistik erlauben</button></div></dialog>}
+    <script>import '../scripts/site';</script>
+  </body>
+</html>

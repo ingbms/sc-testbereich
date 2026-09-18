@@ -1,0 +1,9 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import { emailLink } from '../data/site';
+---
+<section class="closing-cta">
+  <Photo source="HU/1000196349.jpg" alt="Pferde im warmen Abendlicht" position="50% 52%" />
+  <div class="container closing-content"><div><h2>Lust auf neue Perspektiven?</h2><p>Ich freue mich auf deine Nachricht.</p><a class="button" href={emailLink()}>Jetzt Kontakt aufnehmen <Icon name="arrow" /></a></div><p class="handwritten">Andere Perspektiven.<br />Echte Entwicklung.</p></div>
+</section>

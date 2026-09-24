@@ -1,9 +1,25 @@
 {
   "preview": {
-    "DE": ["DE/1000157239.jpg", "DE/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_26106.jpg", "DE/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28473.jpg", "DE/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28737.jpg"],
-    "HU": ["HU/20260915_114119.jpg", "HU/1000196338.jpg", "HU/IMG_20260914_123448_125.jpg", "HU/1000196349.jpg"]
+    "DE": [
+      "DE/1000157239.jpg",
+      "DE/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_26106.jpg",
+      "DE/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28473.jpg",
+      "DE/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28737.jpg"
+    ],
+    "HU": [
+      "HU/20260915_114119.jpg",
+      "HU/1000196338.jpg",
+      "HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28581.jpg",
+      "HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28771.jpg"
+    ]
   },
-  "exclude": ["HU/20260915_120243.jpg", "HU/20260915_120247.jpg", "HU/IMG_20260914_110354_458.jpg", "HU/1000196356.jpg"],
+  "exclude": [
+    "HU/20260915_120243.jpg",
+    "HU/20260915_120247.jpg",
+    "HU/IMG_20260914_110354_458.jpg",
+    "HU/1000196356.jpg",
+    "HU/1000188859.jpg"
+  ],
   "captions": {
     "HU/1000196338.jpg": "Birgit und ein Schimmel im Abendlicht",
     "HU/1000196339.jpg": "Begegnung mit einem Schimmel im Schnee",
@@ -12,6 +28,8 @@
     "HU/1000196349.jpg": "Pferde im Abendlicht",
     "HU/20260915_114119.jpg": "Blick auf Hof und Landschaft",
     "HU/IMG_20260914_123448_125.jpg": "Abendstimmung am See",
-    "DE/1000157239.jpg": "Mensch und Pferd auf der Wiese"
+    "DE/1000157239.jpg": "Mensch und Pferd auf der Wiese",
+    "HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28581.jpg": "Abendlicht über den Weinreben",
+    "HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28771.jpg": "Gemeinsamer Abend am Feuer"
   }
 }

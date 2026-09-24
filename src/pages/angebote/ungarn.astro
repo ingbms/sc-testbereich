@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeading from '../../components/PageHeading.astro';
+import Photo from '../../components/Photo.astro';
+import Gallery from '../../components/Gallery.astro';
+import { emailLink, url } from '../../data/site';
+---
+<Layout title="Auszeit in Ungarn" description="Vier bis sechs Tage Seminar in Ungarn: mit Sightseeing, Pferden in der Puszta, Lagerfeuerromantik und Wellness im Thermalbad.">
+  <PageHeading title="Auszeit in Ungarn." eyebrow="Seminar · Begegnung · Erholung" />
+  <div class="container section-space">
+    <section class="hungary-intro" aria-label="Das Besondere an deiner Auszeit">
+      <p class="hungary-lead">Gönn dir etwas ganz Besonderes: eine Auszeit in Ungarn. Vier bis sechs Tage Seminar mit Sightseeing, Pferden in der Puszta, Lagerfeuerromantik und Wellness im Thermalbad.</p>
+      <a class="text-link" href={emailLink('Anfrage: Auszeit in Ungarn')}>Auszeit anfragen →</a>
+    </section>
+    <figure class="hungary-landscape">
+      <Photo source="HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28581.jpg" eager position="center 20%" />
+      <figcaption>Abendlicht über den Weinreben.</figcaption>
+    </figure>
+    <section id="galerie-ungarn" aria-labelledby="ungarn-eindruecke">
+      <p class="eyebrow">Landschaft. Begegnungen. Gemeinsame Zeit.</p>
+      <h2 id="ungarn-eindruecke">Einblicke in Ungarn.</h2>
+      <Gallery country="HU" />
+    </section>
+    <div class="practical">
+      <p>Du möchtest mehr über die Auszeit erfahren? Schreib mir – wir besprechen deine Fragen zu Termin und Ablauf.</p>
+      <a class="button" href={emailLink('Anfrage: Auszeit in Ungarn')}>Mehr erfahren →</a>
+    </div>
+    <a class="text-link hungary-back" href={url('angebote/#termine')}>Zu den Seminarterminen →</a>
+  </div>
+</Layout>
+<style>
+  .hungary-intro{max-width:880px;margin:0 auto 45px;border-left:2px solid var(--red);padding-left:28px}
+  .hungary-lead{font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.65;margin-bottom:20px;color:var(--ink)}
+  .hungary-landscape{margin:0 0 55px}
+  .hungary-landscape :global(img){width:100%;height:clamp(260px,42vw,520px);object-fit:cover}
+  figcaption{font-size:.9rem;color:var(--muted);margin-top:10px}
+  #ungarn-eindruecke{margin:12px 0 28px}
+  .hungary-back{display:inline-block;margin-top:25px}
+  @media(max-width:720px){.hungary-intro{padding-left:18px;margin-bottom:30px}.hungary-landscape{margin-bottom:35px}}
+</style>

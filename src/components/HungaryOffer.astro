@@ -1,0 +1,14 @@
+---
+import Photo from './Photo.astro';
+import { url } from '../data/site';
+---
+<section class="split-intro hungary-offer" aria-labelledby="ungarn-angebot">
+  <Photo source="HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28581.jpg" position="center 20%" />
+  <div>
+    <p class="eyebrow">Seminar & Auszeit</p>
+    <h2 id="ungarn-angebot">Neue Perspektiven. Zeit für dich.</h2>
+    <p>Vier bis sechs Tage in Ungarn: Seminar, Begegnungen mit Pferden und Zeit zum Entdecken und Entspannen.</p>
+    <a class="text-link" href={url('angebote/ungarn/')}>Die Auszeit in Ungarn entdecken →</a>
+  </div>
+</section>
+<style>.hungary-offer{margin-top:45px}</style>

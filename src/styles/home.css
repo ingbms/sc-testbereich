@@ -6,3 +6,9 @@
 .about-facts--evidence a:hover strong{text-decoration:underline;text-underline-offset:4px}
 @media(min-width:601px) and (max-width:980px){.about-facts.about-facts--evidence{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.hero{padding-top:270px}}
+.hungary-teaser{margin-block:20px 40px}
+.hungary-teaser>a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 28px;background:var(--paper);border-left:2px solid var(--red);font-size:1.05rem}
+.hungary-teaser strong{font-weight:600;color:var(--red)}
+.hungary-teaser svg{width:24px;height:24px;flex-shrink:0;color:var(--red)}
+.hungary-teaser a:hover strong{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:720px){.hungary-teaser>a{padding:18px 20px}.hungary-teaser strong{display:block;margin-bottom:5px}.hungary-teaser .teaser-separator{display:none}}

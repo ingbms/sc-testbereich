@@ -1,40 +1,83 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import PageHeading from '../../components/PageHeading.astro';
 import Photo from '../../components/Photo.astro';
 import Gallery from '../../components/Gallery.astro';
 import { emailLink, url } from '../../data/site';
+const experiences = [
+  { title: 'Seminar', text: 'Lernen, reflektieren und neue Perspektiven gewinnen.' },
+  { title: 'Puszta & Pferde', text: 'Pferden begegnen und die Weite der Puszta erleben.' },
+  { title: 'Sightseeing', text: 'Ungarn entdecken und neue Eindrücke sammeln.' },
+  { title: 'Lagerfeuer', text: 'Den Tag gemeinsam am Feuer ausklingen lassen.' },
+  { title: 'Thermalbad', text: 'Entspannen und in warmem Thermalwasser zur Ruhe kommen.' },
+];
 ---
-<Layout title="Auszeit in Ungarn" description="Vier bis sechs Tage Seminar in Ungarn: mit Sightseeing, Pferden in der Puszta, Lagerfeuerromantik und Wellness im Thermalbad.">
-  <PageHeading title="Auszeit in Ungarn." eyebrow="Seminar · Begegnung · Erholung" />
-  <div class="container section-space">
-    <section class="hungary-intro" aria-label="Das Besondere an deiner Auszeit">
-      <p class="hungary-lead">Gönn dir etwas ganz Besonderes: eine Auszeit in Ungarn. Vier bis sechs Tage Seminar mit Sightseeing, Pferden in der Puszta, Lagerfeuerromantik und Wellness im Thermalbad.</p>
-      <a class="text-link" href={emailLink('Anfrage: Auszeit in Ungarn')}>Auszeit anfragen →</a>
-    </section>
-    <figure class="hungary-landscape">
+<Layout title="Seminare in Ungarn" description="Vier bis sechs Tage Seminar verbinden sich mit Sightseeing, Pferden in der Puszta, Lagerfeuerromantik und entspannenden Stunden im Thermalbad.">
+  <section class="hungary-hero" aria-labelledby="ungarn-titel">
+    <div class="container hungary-hero-inner">
+      <div class="hungary-hero-copy">
+        <div class="breadcrumb"><a href={url()}>Startseite</a> / <a href={url('angebote/')}>Angebote</a> / Ungarn</div>
+        <p class="eyebrow">Lernen. Erleben. Zur Ruhe kommen.</p>
+        <h1 id="ungarn-titel">Seminare in Ungarn</h1>
+      </div>
       <Photo source="HU/a090eaf0-96fb-4404-b240-aad6471dfc85-1_all_28581.jpg" eager position="center 20%" />
-      <figcaption>Abendlicht über den Weinreben.</figcaption>
-    </figure>
-    <section id="galerie-ungarn" aria-labelledby="ungarn-eindruecke">
+    </div>
+  </section>
+  <div class="container hungary-content">
+    <section class="hungary-intro" aria-label="Einleitung Ungarn">
+      <p class="hungary-lead">Gönnen Sie sich etwas ganz Besonderes: eine Auszeit in Ungarn.</p>
+      <p>Vier bis sechs Tage Seminar verbinden sich mit besonderen Erlebnissen – Sightseeing, Pferden in der Puszta, Lagerfeuerromantik und entspannenden Stunden im Thermalbad.</p>
+    </section>
+    <section class="hungary-experiences" aria-labelledby="ungarn-erlebnisse">
+      <p class="eyebrow">Seminar und gemeinsame Zeit</p>
+      <h2 id="ungarn-erlebnisse">Was diese Auszeit verbindet.</h2>
+      <div class="experience-grid">
+        {experiences.map((experience, index) => <article class="experience-card">
+          <span class="experience-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{experience.title}</h3><p>{experience.text}</p>
+        </article>)}
+      </div>
+    </section>
+    <section class="hungary-details" aria-labelledby="ungarn-planung">
+      <p class="eyebrow">Gut zu wissen</p>
+      <h2 id="ungarn-planung">Die Auszeit planen.</h2>
+      <dl class="trip-facts">
+        <div><dt>Dauer</dt><dd>Vier bis sechs Tage.</dd></div>
+        <div><dt>Ablauf</dt><dd>Seminar und begleitende Erlebnisse. Informationen zum genauen Ablauf erhalten Sie auf Anfrage.</dd></div>
+        <div><dt>Termine</dt><dd>Termine für die Seminarreise fragen Sie bitte direkt an. <a href={url('angebote/#termine')}>Zur Übersicht aller Seminartermine →</a></dd></div>
+        <div><dt>Unterkunft</dt><dd>Wenn Sie eine Unterkunft in der Nähe benötigen, unterstützen wir Sie gerne bei der Suche.</dd></div>
+      </dl>
+      <a class="button" href={emailLink('Anfrage: Seminarreise Ungarn')}>Seminarreise anfragen →</a>
+    </section>
+    <section id="galerie-ungarn" class="hungary-gallery" aria-labelledby="ungarn-eindruecke">
       <p class="eyebrow">Landschaft. Begegnungen. Gemeinsame Zeit.</p>
       <h2 id="ungarn-eindruecke">Einblicke in Ungarn.</h2>
       <Gallery country="HU" />
     </section>
-    <div class="practical">
-      <p>Du möchtest mehr über die Auszeit erfahren? Schreib mir – wir besprechen deine Fragen zu Termin und Ablauf.</p>
-      <a class="button" href={emailLink('Anfrage: Auszeit in Ungarn')}>Mehr erfahren →</a>
-    </div>
-    <a class="text-link hungary-back" href={url('angebote/#termine')}>Zu den Seminarterminen →</a>
   </div>
 </Layout>
 <style>
-  .hungary-intro{max-width:880px;margin:0 auto 45px;border-left:2px solid var(--red);padding-left:28px}
-  .hungary-lead{font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.65;margin-bottom:20px;color:var(--ink)}
-  .hungary-landscape{margin:0 0 55px}
-  .hungary-landscape :global(img){width:100%;height:clamp(260px,42vw,520px);object-fit:cover}
-  figcaption{font-size:.9rem;color:var(--muted);margin-top:10px}
-  #ungarn-eindruecke{margin:12px 0 28px}
-  .hungary-back{display:inline-block;margin-top:25px}
-  @media(max-width:720px){.hungary-intro{padding-left:18px;margin-bottom:30px}.hungary-landscape{margin-bottom:35px}}
+  .hungary-hero{background:var(--paper)}
+  .hungary-hero-inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:55px;padding-block:35px}
+  .hungary-hero-copy{padding-block:25px}
+  .hungary-hero h1{font-size:clamp(2.6rem,4.5vw,4.8rem);margin-top:20px;max-width:550px}
+  .hungary-hero :global(img){width:100%;height:420px;object-fit:cover}
+  .hungary-content{padding-bottom:65px}
+  .hungary-intro{max-width:880px;margin:55px auto 65px;border-left:2px solid var(--red);padding-left:28px}
+  .hungary-intro p{font-size:clamp(1.1rem,1.65vw,1.3rem);line-height:1.65;color:var(--muted)}
+  .hungary-intro .hungary-lead{font-size:clamp(1.3rem,2vw,1.6rem);margin-bottom:16px;color:var(--ink)}
+  .hungary-content h2{margin:12px 0 28px}
+  .experience-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+  .experience-card{background:var(--paper);padding:25px 20px}
+  .experience-number{color:var(--red);font-size:.8rem;letter-spacing:.12em}
+  .experience-card h3{font-size:1.55rem;line-height:1.2;margin:18px 0 12px}
+  .experience-card p{font-size:1rem;line-height:1.6;color:var(--muted)}
+  .hungary-details{margin-block:65px;border-top:1px solid var(--line);padding-top:40px}
+  .trip-facts{display:grid;grid-template-columns:1fr 1fr;gap:28px 50px;margin:0 0 30px}
+  .trip-facts>div{border-bottom:1px solid var(--line);padding-bottom:22px}
+  .trip-facts dt{font-weight:600;margin-bottom:8px}
+  .trip-facts dd{margin:0;color:var(--muted);max-width:560px}
+  .trip-facts a{display:block;color:var(--red);text-decoration:underline;text-underline-offset:4px;margin-top:10px}
+  @media(max-width:980px){.hungary-hero-inner{gap:30px}.hungary-hero :global(img){height:350px}.experience-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:720px){.hungary-hero-inner{grid-template-columns:1fr;gap:20px;padding-block:25px}.hungary-hero-copy{padding:0}.hungary-hero :global(img){height:280px}.hungary-intro{padding-left:18px;margin:35px auto 45px}.experience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.experience-card{padding:22px 16px}.experience-card h3{font-size:1.4rem}.hungary-details{margin-block:45px;padding-top:30px}.trip-facts{grid-template-columns:1fr;gap:22px}}
+  @media(max-width:400px){.experience-grid{grid-template-columns:1fr}.hungary-hero :global(img){height:250px}}
 </style>
